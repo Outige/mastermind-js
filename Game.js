@@ -108,6 +108,7 @@ export default class Game {
             let codeListItem = document.createElement('li');
             codeListItem.classList.add('code-list-item');
             codeListItem.classList.add('future-code');
+            codeListItem.style.opacity = 0.25-((i- this.board.length)/this.height);
 
             let codeInput = document.createElement('div');
             codeInput.classList.add('code-input');
