@@ -71,6 +71,7 @@ export default class Game {
         if (this.board.length < this.height -1) {
             let codeListItem = document.createElement('li');
             codeListItem.classList.add('code-list-item');
+            codeListItem.classList.add('current-code');
 
             let codeInput = document.createElement('div');
             codeInput.classList.add('code-input');

@@ -42,7 +42,7 @@ ul {
 .code-list-item {
     list-style: none;
     text-align: center;
-    background-color: rgba(242, 148, 146, 0.4);
+    background-color: rgba(242, 148, 146 , 0.4);
     border-radius: 50px;
     padding: 10px 0px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
@@ -66,9 +66,14 @@ ul {
     border: none;
 }
 
-.confirm-code-btn:hover {
+.current-code .confirm-code-btn:hover {
     /* color: rgba(242, 148, 146, 0.4); */
     color: rgba(255, 255, 255, 0.4);
+}
+
+.future-code .confirm-code-btn:hover {
+    /* color: rgba(242, 148, 146, 0.4); */
+    color: rgba(0, 0, 0, 0.0);
 }
 
 .code-list-item button {
