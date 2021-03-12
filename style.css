@@ -71,11 +71,6 @@ ul {
     color: rgba(255, 255, 255, 0.4);
 }
 
-.future-code .confirm-code-btn:hover {
-    /* color: rgba(242, 148, 146, 0.4); */
-    color: rgba(0, 0, 0, 0.0);
-}
-
 .code-list-item button {
     display: inline-block;
 }

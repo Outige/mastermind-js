@@ -37,6 +37,22 @@ export default class Game {
         return cows;
     }
 
+    // Validtion functions
+    isValidGuess(guess) {
+        let guessArr = [...guess];
+
+        if (guessArr.length != this.width) {
+            return false;
+        }
+        for (let x of guessArr) {
+            if (isNaN(x)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     isGameOver() {
         // TODO: also check if code is guessed correct. I think i've done so
         return  this.board.length >= this.height || this.calculateNumberOfCows(this.board[this.board.length-1]) === this.width;
@@ -68,14 +84,14 @@ export default class Game {
         }
 
         // Add current codes
-        if (this.board.length < this.height -1) {
+        if (this.board.length < this.height ) {
             let codeListItem = document.createElement('li');
             codeListItem.classList.add('code-list-item');
             codeListItem.classList.add('current-code');
 
             let codeInput = document.createElement('div');
             codeInput.classList.add('code-input');
-            codeInput.innerText = `${'0000'}`;
+            codeInput.innerText = `${'0'.repeat(this.width)}`;
             codeInput.contentEditable = true;
 
             let confirmCcodeBtn = document.createElement('button');
@@ -95,7 +111,7 @@ export default class Game {
 
             let codeInput = document.createElement('div');
             codeInput.classList.add('code-input');
-            codeInput.innerText = `${'0000'}`;
+            codeInput.innerText = `${'0'.repeat(this.width)}`;
 
             let confirmCcodeBtn = document.createElement('button');
             confirmCcodeBtn.classList.add('confirm-code-btn');
@@ -117,10 +133,8 @@ export default class Game {
 
         let gameContainer = document.getElementsByClassName('game-container')[0];
         let oldCodeList = document.getElementsByClassName('code-list')[0];
-        console.log(oldCodeList);
         oldCodeList.remove();
         gameContainer.appendChild(codeList);
-        console.log(gameContainer);
     }
 
 }
