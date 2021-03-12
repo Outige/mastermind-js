@@ -3,10 +3,10 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(to right, #114357, #f29492);
 }
 
 .all-content {
-    background-color: antiquewhite;
     width: 80%;
     margin: 0 auto;
 }
@@ -14,12 +14,26 @@ body {
 header {
     text-align: center;
     margin: 0 auto;
-    width: 80%;
+    width: 70%;
+    font-size: 3rem;
+    color: rgb(199, 199, 199);
+    background-image: linear-gradient(to right, #f29492, #114357);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
+    margin-top: 20px;
 }
 
 header h1 {
-    margin: 0;
+    text-align: center;
+    margin: 0 auto;
+    width: 70%;
+    font-size: 3rem;
+    color: rgb(199, 199, 199);
 }
+
+/* header h1 {
+    margin: 0;
+} */
 
 ul {
     padding: 0;
@@ -28,13 +42,33 @@ ul {
 .code-list-item {
     list-style: none;
     text-align: center;
+    background-color: rgba(242, 148, 146, 0.4);
+    border-radius: 50px;
+    padding: 10px 0px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    width: 50%;
+    margin: 2% auto;
 }
 
 .code-input {
     display: inline-block;
     width: 80px;
-    background-color: aqua;
+    /* background-color: aqua; */
     overflow: hidden;
+    font-size: 2rem;
+}
+
+.confirm-code-btn {
+    font-size: 2rem;
+    position: relative;
+    top: -5px;
+    background-color: rgba(248, 103, 100, 0);
+    border: none;
+}
+
+.confirm-code-btn:hover {
+    /* color: rgba(242, 148, 146, 0.4); */
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .code-list-item button {
