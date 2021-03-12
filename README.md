@@ -1,0 +1,1 @@
+This is where the source code lies for a javascript implimentation of the popular boardgame pigs and cows (mastermind)
