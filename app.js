@@ -47,6 +47,7 @@ function processCompleteButtonClick(event) {
         currentInput = document.querySelector('.current-code').querySelector('.code-input');
         currentCompleteButton = document.querySelector('.current-code').querySelector('button');
         currentCompleteButton.addEventListener('click', processCompleteButtonClick);
+        currentInput.addEventListener('click', setDeafaultCurrentInput);
         currentInput.focus();
     } else {
         currentInput.innerText = '0'.repeat(game.width);
@@ -58,4 +59,7 @@ function processCompleteButtonClick(event) {
 
 function setDeafaultCurrentInput() {
     currentInput.style.color = "black";
+    if (currentInput.innerText === '0'.repeat(game.width)) {
+        currentInput.innerText = '';
+    }
 }
