@@ -18,7 +18,6 @@ header {
     width: 70%;
     font-size: 3rem;
     color: rgb(199, 199, 199);
-    background-image: linear-gradient(to right, #f29492, #114357);
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
     border-radius: 40px;
     margin-top: 20px;
@@ -34,7 +33,6 @@ header h1 {
 
 
 .settings-form {
-    background-image: linear-gradient(to top right, #f29492, #114357);
     width: 40%;
     height: 240px;
     margin: 50px auto;
@@ -55,23 +53,18 @@ header h1 {
 }
 
 .code-width, .code-height, .start-game {
-    /* display: inline-block; */
     font-size: 1.4rem;
     margin-top: 10px;
-    /* margin-left: 50px; */
     text-align: center;
     color: rgb(58, 57, 57);
-    
 }
 
 .code-width label, .code-height label {
     display: block;
-    /* margin: 0px auto; */
 }
 
 .code-width input, .code-height input {
     background-color: rgba(200, 214, 250, 0.3);
-    color: rgba(73, 72, 72, 0.4);
     color: rgba(73, 72, 72, 1.0);
     border: none;
     font-size: 1.5rem;
@@ -86,15 +79,11 @@ header h1 {
 }
 
 .start-game input {
-    color: rgb(192, 192, 192);
-    background-color: rgba(73, 72, 72, 0.6);
-    background-color: rgba(73, 72, 72, 0.8);
     font-size: 1.5rem;
     border-radius: 40px;
     border: none;
     cursor: pointer;
     background-color: rgba(200, 214, 250, 0.3);
-    color: rgba(73, 72, 72, 0.4);
     color: rgba(73, 72, 72, 1.0);
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
     width: 50%;
@@ -113,7 +102,7 @@ ul {
 .code-list-item {
     list-style: none;
     text-align: center;
-    background-color: rgba(242, 148, 146 , 0.4);
+    /* background-color: rgba(242, 148, 146 , 0.4); */
     border-radius: 50px;
     padding: 10px 0px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);

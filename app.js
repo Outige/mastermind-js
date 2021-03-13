@@ -2,24 +2,52 @@
 import Game from './Game.js';
 import Settings from './Settings.js';
 
+/* 
+    settings
+*/
 let settings = new Settings();
 settings.loadSettingsForm(document);
 
+// Selectors
+let startGameButton = document.querySelector('.start-game');
+let codeWidth = document.querySelector('.code-width').getElementsByTagName('input')[0];
+let codeHeight = document.querySelector('.code-height').getElementsByTagName('input')[0];
+
+// Event listeners
+startGameButton.addEventListener('click', startButtonOnClick);
+
+let game;
+let currentInput;// = document.querySelector('.current-code').querySelector('.code-input');
+let currentCompleteButton;// = document.querySelector('.current-code').querySelector('button');
+
+function startButtonOnClick() {
+    if (codeWidth.value > 0 && codeHeight.value > 0) {
+        game = new Game(parseInt(codeWidth.value, 10),
+        parseInt(codeHeight.value, 10), Game.randomCode(parseInt(codeWidth.value, 10)));
+        game.refreshCodeListFromBoard(document);
+        currentInput = document.querySelector('.current-code').querySelector('.code-input');
+        currentCompleteButton = document.querySelector('.current-code').querySelector('button');
+        currentCompleteButton.addEventListener('click', processCompleteButtonClick);
+        currentInput.addEventListener('click', setDeafaultCurrentInput);
+        currentInput.addEventListener('keypress', lookForReturnKeyPress);
+        console.log(`code: ${game.code}`);
+    }
+}
 
 
-let game = new Game(4, 7, Game.randomCode(4));
-console.log(`code: ${game.code}`);
+/* Game */
+// console.log(`code: ${game.code}`);
 
 // game.refreshCodeListFromBoard(document);
 
 // Selectors
-let currentInput = document.querySelector('.current-code').querySelector('.code-input');
-let currentCompleteButton = document.querySelector('.current-code').querySelector('button');
+// let currentInput = document.querySelector('.current-code').querySelector('.code-input');
+// let currentCompleteButton = document.querySelector('.current-code').querySelector('button');
 
 // Event listeners
-currentCompleteButton.addEventListener('click', processCompleteButtonClick);
-currentInput.addEventListener('click', setDeafaultCurrentInput);
-currentInput.addEventListener('keypress', lookForReturnKeyPress);
+// currentCompleteButton.addEventListener('click', processCompleteButtonClick);
+// currentInput.addEventListener('click', setDeafaultCurrentInput);
+// currentInput.addEventListener('keypress', lookForReturnKeyPress);
 
 // Functions
 function processCompleteButtonClick(event) {

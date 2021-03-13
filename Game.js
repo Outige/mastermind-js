@@ -54,6 +54,8 @@ export default class Game {
     }
 
     calculateNumberOfCows(guess) {
+        console.log(guess);
+        console.log(this.code);
         // TODO: add error throw if guess isn't correct length. Also if error isn't num
         let cows = 0;
         for (let i = 0; i < guess.length; i++) {
@@ -174,7 +176,13 @@ export default class Game {
 
         let gameContainer = document.getElementsByClassName('game-container')[0];
         let oldCodeList = document.getElementsByClassName('code-list')[0];
-        oldCodeList.remove();
+        if (oldCodeList != null || oldCodeList !== undefined) {
+            oldCodeList.remove();
+        }
+        let settingsForm = document.querySelector('.settings-form');
+        if (settingsForm !== null || settingsForm != undefined) {
+            settingsForm.remove();
+        }
         gameContainer.appendChild(codeList);
     }
 
