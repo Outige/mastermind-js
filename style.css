@@ -36,7 +36,7 @@ header h1 {
 .settings-form {
     background-image: linear-gradient(to top right, #f29492, #114357);
     width: 40%;
-    height: 200px;
+    height: 240px;
     margin: 50px auto;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
     border-radius: 40px;
@@ -46,31 +46,63 @@ header h1 {
     position: relative;
     top: 5px;
     text-align: center;
-    border-bottom: solid 2px rgba(200, 214, 250, 0.8);
+    border-bottom: solid 2px rgb(58, 57, 57);
     font-size: 1.5rem;
     width: 80%;
     margin: 0 auto;
-    color: rgba(200, 214, 250, 0.8);
+    color: rgb(58, 57, 57);
     padding-bottom: 10px;
 }
 
 .code-width, .code-height, .start-game {
-    width: 50%;
-    background-color: rgba(200, 214, 250, 0.6);
-    color: rgba(73, 72, 72, 0.4);
-    color: rgba(73, 72, 72, 0.9);
-    font-size: 1.5rem;
-    margin: 20px auto;
-    border-radius: 40px;
+    /* display: inline-block; */
+    font-size: 1.4rem;
+    margin-top: 10px;
+    /* margin-left: 50px; */
     text-align: center;
-    /* position: relative;
-    top: 60px; */
+    color: rgb(58, 57, 57);
+    
+}
+
+.code-width label, .code-height label {
+    display: block;
+    /* margin: 0px auto; */
+}
+
+.code-width input, .code-height input {
+    background-color: rgba(200, 214, 250, 0.3);
+    color: rgba(73, 72, 72, 0.4);
+    color: rgba(73, 72, 72, 1.0);
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 20%;
 }
 
 .start-game {
-    color: rgba(200, 214, 250, 0.8);
+    text-align: center;
+    margin-top: 30px;
+}
+
+.start-game input {
+    color: rgb(192, 192, 192);
     background-color: rgba(73, 72, 72, 0.6);
     background-color: rgba(73, 72, 72, 0.8);
+    font-size: 1.5rem;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(200, 214, 250, 0.3);
+    color: rgba(73, 72, 72, 0.4);
+    color: rgba(73, 72, 72, 1.0);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    width: 50%;
+}
+
+.start-game input:hover {
+    transition: all 0.5s ease;
+    background-color: rgba(200, 214, 250, 0.5);
 }
 
 /* Game settings */

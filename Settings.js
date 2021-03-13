@@ -4,6 +4,7 @@ export default class Settings {
     }
 
     loadSettingsForm(document) {
+        return;
         let body = document.getElementsByTagName('body')[0];
         let gameContainer = document.querySelector('.game-container');
 
@@ -12,15 +13,19 @@ export default class Settings {
 
         let settingsTitle = document.createElement('div');
         settingsTitle.classList.add('settings-title');
+        settingsTitle.innerText = 'Game Settings';
 
         let codeWidth = document.createElement('div');
         codeWidth.classList.add('code-width');
+        codeWidth.innerText = 'Code Size';
 
         let codeHeight = document.createElement('div');
         codeHeight.classList.add('code-height');
+        codeHeight.innerText = 'Number of Guesses';
 
         let startGame = document.createElement('div');
         startGame.classList.add('start-game');
+        startGame.innerText = 'Start Game';
 
         settingsForm.appendChild(settingsTitle);
         settingsForm.appendChild(codeWidth);
