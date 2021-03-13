@@ -3,7 +3,7 @@ import Game from './Game.js';
 
 // BS moves
 let code = '2317'
-let game = new Game(4, 7, code);
+let game = new Game(4, 7, Game.randomCode(4));
 console.log(`code: ${game.code}`);
 
 // console.log('\nmove 1')
@@ -30,6 +30,7 @@ let currentCompleteButton = document.querySelector('.current-code').querySelecto
 // Event listeners
 currentCompleteButton.addEventListener('click', processCompleteButtonClick);
 currentInput.addEventListener('click', setDeafaultCurrentInput);
+currentInput.addEventListener('keypress', lookForReturnKeyPress);
 
 // Functions
 function processCompleteButtonClick(event) {
@@ -47,7 +48,10 @@ function processCompleteButtonClick(event) {
         currentInput = document.querySelector('.current-code').querySelector('.code-input');
         currentCompleteButton = document.querySelector('.current-code').querySelector('button');
         currentCompleteButton.addEventListener('click', processCompleteButtonClick);
-        currentInput.focus();
+        currentInput.addEventListener('click', setDeafaultCurrentInput);
+        currentInput.addEventListener('keypress', lookForReturnKeyPress);
+        // currentInput.focus();
+        // currentInput.innerText = String(currentInput.innerText).replace(/^\s+|\s+$/g, '');
     } else {
         currentInput.innerText = '0'.repeat(game.width);
         // currentInput.style.border = "solid red";
@@ -58,4 +62,14 @@ function processCompleteButtonClick(event) {
 
 function setDeafaultCurrentInput() {
     currentInput.style.color = "black";
+    if (currentInput.innerText === '0'.repeat(game.width)) {
+        currentInput.innerText = '';
+    }
+}
+
+function lookForReturnKeyPress(event) {
+    if (event.which === 13 || event.keyCode == 13) {
+        currentInput.innerText = String(currentInput.innerText).replace(/^\s+|\s+$/g, '');
+        processCompleteButtonClick(event);
+    }
 }
