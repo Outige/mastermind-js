@@ -14,12 +14,31 @@ export default class Game {
     }
 
     calculateNumberOfPigs(guess) {
-        // TODO: add error throw if guess isn't correct length. Also if error isn't num
-        let pigs = 0;
+        let cowArray = [];
         for (let i = 0; i < guess.length; i++) {
+            if (guess[i] === this.code[i]) {
+                cowArray.push(i);
+            }
+        }
+
+
+        let pigs = 0;
+        let pigArray = [];
+        // 0220
+        // 2317
+        console.log(cowArray);
+        for (let i = 0; i < guess.length; i++) {
+            if (cowArray.indexOf(i) > -1) {
+                continue;
+            }
             for (let j = 0; j < guess.length; j++) {
+                if (cowArray.indexOf(j) > -1 || pigArray.indexOf(j) > -1) {
+                    continue;
+                }
                 if (guess[i] === this.code[j] && i !== j) {
                     pigs++;
+                    pigArray.push(j);
+                    break;
                 }
             }
         }
@@ -78,8 +97,18 @@ export default class Game {
             confirmCcodeBtn.innerHTML = '<i class="fas fa-check-square"></i>';
             confirmCcodeBtn.disabled = true;
 
+            let pig = document.createElement('div');
+            pig.classList.add('pig');
+            pig.innerText = this.calculateNumberOfPigs(x);
+
+            let cow = document.createElement('div');
+            cow.classList.add('cow');
+            cow.innerText = this.calculateNumberOfCows(x);
+
             codeListItem.appendChild(codeInput);
             codeListItem.appendChild(confirmCcodeBtn);
+            codeListItem.appendChild(pig);
+            codeListItem.appendChild(cow);
             codeList.appendChild(codeListItem);
         }
 

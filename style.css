@@ -59,6 +59,15 @@ ul {
     font-size: 2rem;
 }
 
+.pig, .cow {
+    display: inline-block;
+    width: 20px;
+    color: black;
+    overflow: hidden;
+    font-size: 2rem;
+    text-align: right;
+}
+
 .confirm-code-btn {
     font-size: 2rem;
     position: relative;
