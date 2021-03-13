@@ -29,6 +29,7 @@ let currentCompleteButton = document.querySelector('.current-code').querySelecto
 
 // Event listeners
 currentCompleteButton.addEventListener('click', processCompleteButtonClick);
+currentInput.addEventListener('click', setDeafaultCurrentInput);
 
 // Functions
 function processCompleteButtonClick(event) {
@@ -46,8 +47,15 @@ function processCompleteButtonClick(event) {
         currentInput = document.querySelector('.current-code').querySelector('.code-input');
         currentCompleteButton = document.querySelector('.current-code').querySelector('button');
         currentCompleteButton.addEventListener('click', processCompleteButtonClick);
-
+        currentInput.focus();
     } else {
         currentInput.innerText = '0'.repeat(game.width);
+        // currentInput.style.border = "solid red";
+        currentInput.style.color = "red";
+        // currentInput.style.borderRadius = "40px";
     }
+}
+
+function setDeafaultCurrentInput() {
+    currentInput.style.color = "black";
 }
