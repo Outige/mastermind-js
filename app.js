@@ -31,6 +31,8 @@ function startButtonOnClick() {
         currentInput.addEventListener('click', setDeafaultCurrentInput);
         currentInput.addEventListener('keypress', lookForReturnKeyPress);
         console.log(`code: ${game.code}`);
+        /* hard code out rules */
+        document.getElementsByClassName('rules-container')[0].style.display = 'none';
     }
 }
 
