@@ -74,6 +74,9 @@ export default class Game {
 
     isGameOver() {
         // TODO: also check if code is guessed correct. I think i've done so
+        if (this.board.length === 0) {
+            return false;
+        }
         return  this.board.length >= this.height || this.calculateNumberOfCows(this.board[this.board.length-1]) === this.width;
     }
 
@@ -113,7 +116,7 @@ export default class Game {
         }
 
         // Add current codes
-        if (this.board.length < this.height ) {
+        if (this.board.length < this.height && !this.isGameOver()) {
             let codeListItem = document.createElement('li');
             codeListItem.classList.add('code-list-item');
             codeListItem.classList.add('current-code');
