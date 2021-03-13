@@ -30,6 +30,7 @@ let currentCompleteButton = document.querySelector('.current-code').querySelecto
 // Event listeners
 currentCompleteButton.addEventListener('click', processCompleteButtonClick);
 currentInput.addEventListener('click', setDeafaultCurrentInput);
+currentInput.addEventListener('keypress', lookForReturnKeyPress);
 
 // Functions
 function processCompleteButtonClick(event) {
@@ -48,7 +49,9 @@ function processCompleteButtonClick(event) {
         currentCompleteButton = document.querySelector('.current-code').querySelector('button');
         currentCompleteButton.addEventListener('click', processCompleteButtonClick);
         currentInput.addEventListener('click', setDeafaultCurrentInput);
-        currentInput.focus();
+        currentInput.addEventListener('keypress', lookForReturnKeyPress);
+        // currentInput.focus();
+        // currentInput.innerText = String(currentInput.innerText).replace(/^\s+|\s+$/g, '');
     } else {
         currentInput.innerText = '0'.repeat(game.width);
         // currentInput.style.border = "solid red";
@@ -61,5 +64,14 @@ function setDeafaultCurrentInput() {
     currentInput.style.color = "black";
     if (currentInput.innerText === '0'.repeat(game.width)) {
         currentInput.innerText = '';
+    }
+}
+
+function lookForReturnKeyPress(event) {
+    console.log('keypress');
+    console.log(`${event.which} ${event.keyCode}`);
+    currentInput.innerText = String(currentInput.innerText).replace(/^\s+|\s+$/g, '');
+    if (event.which === 13 || event.keyCode == 13) {
+        processCompleteButtonClick(event);
     }
 }
