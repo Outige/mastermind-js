@@ -1,36 +1,53 @@
 // Imports
 import Game from './Game.js';
+import Settings from './Settings.js';
 
-// BS moves
-let code = '2317'
-let game = new Game(4, 7, Game.randomCode(4));
-console.log(`code: ${game.code}`);
-
-// console.log('\nmove 1')
-// let guess = '1238'
-// game.addGuessToBoard(guess);
-// console.log(`board ${game.board}`);
-// console.log(`pigs: ${game.calculateNumberOfPigs(guess)}`);
-// console.log(`cows: ${game.calculateNumberOfCows(guess)}`);
-
-// console.log('\nmove 1')
-// guess = '4568'
-// game.addGuessToBoard(guess);
-// console.log(`board ${game.board}`);
-// console.log(`pigs: ${game.calculateNumberOfPigs(guess)}`);
-// console.log(`cows: ${game.calculateNumberOfCows(guess)}`);
-
-
-game.refreshCodeListFromBoard(document);
+/* 
+    settings
+*/
+let settings = new Settings();
+settings.loadSettingsForm(document);
 
 // Selectors
-let currentInput = document.querySelector('.current-code').querySelector('.code-input');
-let currentCompleteButton = document.querySelector('.current-code').querySelector('button');
+let startGameButton = document.querySelector('.start-game');
+let codeWidth = document.querySelector('.code-width').getElementsByTagName('input')[0];
+let codeHeight = document.querySelector('.code-height').getElementsByTagName('input')[0];
 
 // Event listeners
-currentCompleteButton.addEventListener('click', processCompleteButtonClick);
-currentInput.addEventListener('click', setDeafaultCurrentInput);
-currentInput.addEventListener('keypress', lookForReturnKeyPress);
+startGameButton.addEventListener('click', startButtonOnClick);
+
+let game;
+let currentInput;// = document.querySelector('.current-code').querySelector('.code-input');
+let currentCompleteButton;// = document.querySelector('.current-code').querySelector('button');
+
+function startButtonOnClick() {
+    if (codeWidth.value > 0 && codeHeight.value > 0) {
+        game = new Game(parseInt(codeWidth.value, 10),
+        parseInt(codeHeight.value, 10), Game.randomCode(parseInt(codeWidth.value, 10)));
+        game.refreshCodeListFromBoard(document);
+        currentInput = document.querySelector('.current-code').querySelector('.code-input');
+        currentCompleteButton = document.querySelector('.current-code').querySelector('button');
+        currentCompleteButton.addEventListener('click', processCompleteButtonClick);
+        currentInput.addEventListener('click', setDeafaultCurrentInput);
+        currentInput.addEventListener('keypress', lookForReturnKeyPress);
+        console.log(`code: ${game.code}`);
+    }
+}
+
+
+/* Game */
+// console.log(`code: ${game.code}`);
+
+// game.refreshCodeListFromBoard(document);
+
+// Selectors
+// let currentInput = document.querySelector('.current-code').querySelector('.code-input');
+// let currentCompleteButton = document.querySelector('.current-code').querySelector('button');
+
+// Event listeners
+// currentCompleteButton.addEventListener('click', processCompleteButtonClick);
+// currentInput.addEventListener('click', setDeafaultCurrentInput);
+// currentInput.addEventListener('keypress', lookForReturnKeyPress);
 
 // Functions
 function processCompleteButtonClick(event) {
