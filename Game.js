@@ -8,6 +8,14 @@ export default class Game {
         console.log('new game');
     }
 
+    static randomCode(width) {
+        let code = '';
+        for (let i = 0; i < width; i++) {
+            code += Math.floor(Math.random() * 10);
+        }
+        return code;
+    }
+
     // code is arr
     addGuessToBoard(guess) {
         this.board.push(guess);

@@ -3,7 +3,7 @@ import Game from './Game.js';
 
 // BS moves
 let code = '2317'
-let game = new Game(4, 7, code);
+let game = new Game(4, 7, Game.randomCode(4));
 console.log(`code: ${game.code}`);
 
 // console.log('\nmove 1')
@@ -68,10 +68,8 @@ function setDeafaultCurrentInput() {
 }
 
 function lookForReturnKeyPress(event) {
-    console.log('keypress');
-    console.log(`${event.which} ${event.keyCode}`);
-    currentInput.innerText = String(currentInput.innerText).replace(/^\s+|\s+$/g, '');
     if (event.which === 13 || event.keyCode == 13) {
+        currentInput.innerText = String(currentInput.innerText).replace(/^\s+|\s+$/g, '');
         processCompleteButtonClick(event);
     }
 }
