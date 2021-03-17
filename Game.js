@@ -11,7 +11,15 @@ export default class Game {
     static randomCode(width) {
         let code = '';
         for (let i = 0; i < width; i++) {
-            code += Math.floor(Math.random() * 10);
+            console.log(i);
+            let x = Math.floor(Math.random() * 10);
+            console.log(`${code} ${x}`);
+            if (code.indexOf(x.toString()) > -1) {
+                i--;
+                console.log('me');
+            } else {
+                code += x;
+            }
         }
         return code;
     }

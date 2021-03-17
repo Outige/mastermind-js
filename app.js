@@ -21,7 +21,7 @@ let currentInput;// = document.querySelector('.current-code').querySelector('.co
 let currentCompleteButton;// = document.querySelector('.current-code').querySelector('button');
 
 function startButtonOnClick() {
-    if (codeWidth.value > 0 && codeHeight.value > 0) {
+    if (codeWidth.value > 0 && codeHeight.value > 0 && codeWidth.value < 11) {
         game = new Game(parseInt(codeWidth.value, 10),
         parseInt(codeHeight.value, 10), Game.randomCode(parseInt(codeWidth.value, 10)));
         game.refreshCodeListFromBoard(document);
@@ -61,7 +61,7 @@ function processCompleteButtonClick(event) {
             alert("You Win!");
             return;
         } else if (game.board.length >= game.height) {
-            alert("You Lose :(");
+            alert(`You Lose :(\n The code was: ${game.code}`);
             return;
         }
         currentInput = document.querySelector('.current-code').querySelector('.code-input');
